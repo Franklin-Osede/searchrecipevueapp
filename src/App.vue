@@ -1,4 +1,4 @@
-<template><h1 class="bg-blue-500">App.vue</h1></template>
+<template><router-view /></template>
 
 <script setup></script>
 

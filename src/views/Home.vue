@@ -1,3 +1,3 @@
-<template></template>
+<template>Home</template>
 
-<script></script>
+<script setup></script>
