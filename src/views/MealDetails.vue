@@ -1,8 +1,7 @@
 <template>
-  <div class="w-[800px] mx-auto p-8">
-    <pre>  {{ meal }}  </pre>
+  <div class="max-w-[800px] mx-auto p-8">
     <h1 class="text-5xl font-bold md-5">{{ meal.strMeal }}</h1>
-    <img :src="meal.strMealThumb" :alt="meal.strMeal" />
+    <img :src="meal.strMealThumb" :alt="meal.strMeal" class="max-w-[100%]" />
     <div class="grid grid-cols-1 sm:grid-cols-3 text-lg py-2">
       <div>
         <strong class="font-bold">Category:</strong> {{ meal.strCategory }}
@@ -10,6 +9,10 @@
       <div><strong class="font-bold">Area: </strong> {{ meal.strArea }}</div>
       <div><strong class="font-bold">Tags:</strong>{{ meal.strTags }}</div>
     </div>
+  </div>
+
+  <div class="my-3">
+    {{ meal.strInstructions }}
   </div>
 
   <div class="grid grid-cols-1 sm:grid-cols-2">
@@ -38,9 +41,9 @@
       <a
         :href="meal.strSource"
         target="_blank"
-        class="px-3 py-2 rounded border-2 text-white border-indigo-600 bg-indigo-500 hover:bg-indigo-600 transition-colors"
+        class="ml-3 px-3 py-2 rounded border-2 border-transparent text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors"
       >
-        <slot></slot>
+        View Original Source
       </a>
     </div>
   </div>
