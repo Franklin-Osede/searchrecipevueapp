@@ -1,6 +1,6 @@
 <template>
   <div class="max-w-[800px] mx-auto p-8">
-    <h1 class="text-5xl font-bold md-5">{{ meal.strMeal }}</h1>
+    <h1 class="text-4xl font-bold mb-5 text-orange-500">{{ meal.strMeal }}</h1>
     <img :src="meal.strMealThumb" :alt="meal.strMeal" class="max-w-[100%]" />
     <div class="grid grid-cols-1 sm:grid-cols-3 text-lg py-2">
       <div>
@@ -37,7 +37,7 @@
       </ul>
     </div>
     <div class="mt-4">
-      <YouTubeButton :href="meal.strYoutube"> Youtube</YouTubeButton>
+      <YouTubeButton :href="meal.strYoutube" />
       <a
         :href="meal.strSource"
         target="_blank"
@@ -60,7 +60,6 @@ const meal = ref({});
 
 onMounted(() => {
   axiosClient.get(`lookup.php?i=${route.params.id}`).then(({ data }) => {
-    debugger;
     meal.value = data.meals[0] || {};
   });
 });
