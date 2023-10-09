@@ -8,9 +8,7 @@
       @change="searchMeals"
     />
   </div>
-  <div class="mt-4">
-    <MealItem v-for="meal in meals" :key="meal.idMeal" :meal="meal" />
-  </div>
+  <Meals :meals="meals" />
 </template>
 
 <script setup>
@@ -18,8 +16,7 @@ import { computed } from "@vue/reactivity";
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import store from "../store";
-import YouTubeButton from "../components/YouTubeButton.vue";
-import MealItem from "../components/MealItem.vue";
+import Meals from "../components/Meals.vue";
 
 const route = useRoute();
 const keyword = ref("");
