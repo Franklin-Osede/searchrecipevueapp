@@ -1,5 +1,5 @@
 <template>
-  <div class="p-8">
+  <div class="p-8 pb-0">
     <input
       type="text"
       v-model="keyword"
@@ -8,13 +8,33 @@
       @change="searchMeals"
     />
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-5 gap-3 p-8">
-    <div v-for="meal of meals" :key="meal.idMeal">
-      <img :src="meal.strMealThumb" alt="strMeal" />
-      <h3>{{ meal.strMeal }}</h3>
-      <div>
-        <a :href="meal.strYoutube" target="_blank">Youtube</a>
-        <router-link to="/">View</router-link>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-5 p-8">
+    <div
+      v-for="meal of meals"
+      :key="meal.idMeal"
+      class="bg-white shadow rounded-xl"
+    >
+      <router-link to="/">
+        <img
+          :src="meal.strMealThumb"
+          alt="strMeal"
+          class="rounded-xl w-full h-48 object-cover"
+        />
+      </router-link>
+      <div class="p-3">
+        <h3 class="font-bold">{{ meal.strMeal }}</h3>
+        <p class="mb-4">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat aut
+          necessitatibus debitis quo cupiditate perspiciatis quas¡
+        </p>
+        <div class="flex items-center justify-between">
+          <a
+            :href="meal.strYoutube"
+            target="_blank"
+            class="px-3 py-2 rounded border-2 text-white border-red-600 bg-red-500 hover:bg-red-600 transition-colors"
+            >Youtube</a
+          >
+        </div>
       </div>
     </div>
   </div>
@@ -22,12 +42,21 @@
 
 <script setup>
 import { computed } from "@vue/reactivity";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+import { useRoute } from "vue-router";
 import store from "../store";
 
+const route = useRoute();
 const keyword = ref("");
 const meals = computed(() => store.state.searchedMeals);
 function searchMeals() {
   store.dispatch("searchMeals", keyword.value);
 }
+
+onMounted(() => {
+  keyword.value = route.params.name;
+  if (keyword.value) {
+    searchMeals();
+  }
+});
 </script>
