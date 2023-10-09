@@ -7,9 +7,15 @@
       placeholder="Search for Meals"
       @change="searchMeals"
     />
-
-    <div>
-      <pre> {{ meals }} </pre>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-5 gap-3 p-8">
+    <div v-for="meal of meals" :key="meal.idMeal">
+      <img :src="meal.strMealThumb" alt="strMeal" />
+      <h3>{{ meal.strMeal }}</h3>
+      <div>
+        <a :href="meal.strYoutube" target="_blank">Youtube</a>
+        <router-link to="/">View</router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -17,12 +23,11 @@
 <script setup>
 import { computed } from "@vue/reactivity";
 import { ref } from "vue";
-import axiosClient from "../axiosClient";
 import store from "../store";
 
 const keyword = ref("");
 const meals = computed(() => store.state.searchedMeals);
 function searchMeals() {
-  store.dispatch("searchedMeals", keyword.value);
+  store.dispatch("searchMeals", keyword.value);
 }
 </script>
