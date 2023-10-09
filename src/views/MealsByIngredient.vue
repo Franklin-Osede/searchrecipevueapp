@@ -2,4 +2,11 @@
   <div>By Ingredients</div>
 </template>
 
-<script setup></script>
+<script setup>
+import { onMounted } from "vue";
+import axiosClient from "../axiosClient";
+
+onMounted(() => {
+  axiosClient.get();
+});
+</script>

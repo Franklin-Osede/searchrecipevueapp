@@ -8,6 +8,9 @@
       @change="searchMeals"
     />
   </div>
+  <div class="mt-4">
+    <MealItem v-for="meal in meals" :key="meal.idMeal" :meal="meal" />
+  </div>
 </template>
 
 <script setup>
@@ -21,6 +24,7 @@ import MealItem from "../components/MealItem.vue";
 const route = useRoute();
 const keyword = ref("");
 const meals = computed(() => store.state.searchedMeals);
+
 function searchMeals() {
   store.dispatch("searchMeals", keyword.value);
 }
