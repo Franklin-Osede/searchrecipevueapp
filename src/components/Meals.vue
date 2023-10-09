@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<script set up>
+<script setup>
 import MealItem from "./MealItem.vue";
 
 const { meals } = defineProps({
