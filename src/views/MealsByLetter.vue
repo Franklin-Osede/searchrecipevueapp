@@ -28,7 +28,7 @@ const meals = computed(() => store.state.mealsByLetter);
 
 watch(route, () => {
   store.dispatch("searchMealsByLetter", route.params.letter);
-});
+}); // watches for changes in the "route" object, and when the route changes, it dispatches the "searchMealsByLetter" action with the "letter" parameter from the route's parameters.
 
 onMounted(() => {
   store.dispatch("searchMealsByLetter", route.params.letter);

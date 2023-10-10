@@ -24,14 +24,14 @@ import store from "../store";
 import Meals from "../components/Meals.vue";
 
 const route = useRoute();
-const keyword = ref("");
+const keyword = ref(""); //reactive variable keyword that I use to track and respond to changes in the search keyword
 const meals = computed(() => store.state.searchedMeals);
 
 function searchMeals() {
   if (keyword.value) {
-    store.dispatch("searchMeals", keyword.value);
+    store.dispatch("searchMeals", keyword.value); //it dispatches an action to the store ("searchMeals") with the keyword as an argument. This action triggers an asynchronous search operation and updates the searchedMeals property in the store.
   } else {
-    store.commit("setSearchedMeals", []);
+    store.commit("setSearchedMeals", []); // commits a mutation to the store ,done to clear the previous search results.
   }
 }
 

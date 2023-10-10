@@ -10,7 +10,7 @@ import store from "../store";
 import Meals from "../components/Meals.vue";
 import axiosClient from "../axiosClient.js";
 
-const meals = ref([]);
+const meals = ref([]); //create reactive reference to array
 
 onMounted(async () => {
   for (let i = 0; i < 10; i++) {
@@ -19,4 +19,6 @@ onMounted(async () => {
       .then(({ data }) => meals.value.push(data.meals[0]));
   }
 });
+
+//onMounted, life cycle hook that occur after component has been added to the DOM.
 </script>
