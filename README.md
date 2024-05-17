@@ -17,7 +17,7 @@ JavaScript is the scripting language that powers the functionality of the applic
 Axios is a promise-based HTTP client for the browser and Node.js. In the Search Recipe App, Axios is used to handle asynchronous HTTP requests to external recipe APIs. It simplifies the process of sending and fetching data, allowing for easy handling of request and response interceptors, as well as transforming request data.
 
 #### Vuex
-Vuex is a state management pattern + library for Vue.js applications. It serves as a centralized store for all the components in an application, with rules ensuring that the state can only be mutated in a predictable fashion. In our app, Vuex manages the states of the recipes, search terms, and API responses, ensuring that the state across the application remains consistent and reactive.
+Vuex is a state management pattern + library for Vue.js applications. It serves as a centralized store for all the components in an application, with rules ensuring that the state can only be mutated in a predictable fashion. In this app, Vuex manages the states of the recipes, search terms, and API responses, ensuring that the state across the application remains consistent and reactive.
 
 ### Quick Start Installation
 Get started with the Search Recipe App by following these simple steps:
